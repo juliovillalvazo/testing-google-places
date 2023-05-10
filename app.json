@@ -1,4 +1,14 @@
 {
   "name": "LearnGoogleMaps",
-  "displayName": "LearnGoogleMaps"
+  "displayName": "LearnGoogleMaps",
+  "expo": {
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ]
+  }
 }
