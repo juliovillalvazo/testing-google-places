@@ -11,7 +11,16 @@ import {
 import Constants from 'expo-constants';
 import axios from 'axios';
 
-export const PlaceInput = () => {
+/** TODO fix where to input since it occupies all map screen height */
+
+type PlaceInputProps = {
+  userLocation: {
+    latitude: number | null;
+    longitude: number | null;
+  };
+};
+
+export const PlaceInput: React.FC<PlaceInputProps> = ({userLocation}) => {
   const [predictions, setPredictions] = useState<any[]>([]);
   const [input, setInput] = useState('');
   const [load, setLoad] = useState(false);
@@ -26,7 +35,7 @@ export const PlaceInput = () => {
   const getPlaces = async (input: string) => {
     try {
       const {data} = await axios.get(
-        `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyCl8qDuGbCkYzEMU_vyYgNbMCtsS2bKako&input=${input}&location=37.76999%2C-122.44696&radius=500`,
+        `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyCl8qDuGbCkYzEMU_vyYgNbMCtsS2bKako&input=${input}&location=${userLocation.latitude}%2C${userLocation.longitude}&radius=500`,
       );
       setPredictions(data.predictions);
     } catch (e) {

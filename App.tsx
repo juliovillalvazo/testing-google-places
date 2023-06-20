@@ -30,7 +30,7 @@ export default () => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
         <MapsScreen userLocation={userLocation} />
-        <PlaceInput />
+        <PlaceInput userLocation={userLocation} />
       </View>
     </TouchableWithoutFeedback>
   );
