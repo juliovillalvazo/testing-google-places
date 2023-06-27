@@ -18,10 +18,18 @@ type PlaceInputProps = {
     latitude: number | null;
     longitude: number | null;
   };
+  showDirectionsOnMap: (placeId: string) => void;
 };
 
-export const PlaceInput: React.FC<PlaceInputProps> = ({userLocation}) => {
+export const PlaceInput: React.FC<PlaceInputProps> = ({
+  userLocation,
+  showDirectionsOnMap,
+}) => {
   const [predictions, setPredictions] = useState<any[]>([]);
+  // const [route, setRoute] = useState<{name: any; placeId: any}>({
+  //   name: null,
+  //   placeId: null,
+  // });
   const [input, setInput] = useState('');
   const [load, setLoad] = useState(false);
 
@@ -46,6 +54,11 @@ export const PlaceInput: React.FC<PlaceInputProps> = ({userLocation}) => {
   const handleSetDestination = (prediction: any) => {
     Keyboard.dismiss();
     setInput(prediction.structured_formatting.main_text);
+    // setRoute({
+    //   name: prediction.structured_formatting.main_text,
+    //   placeId: prediction.place_id,
+    // });
+    showDirectionsOnMap(prediction.place_id);
     setLoad(false);
     setPredictions([]);
   };
