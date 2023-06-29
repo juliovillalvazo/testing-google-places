@@ -14,7 +14,10 @@ type MapsScreenProps = {
   };
 };
 
-export const MapsScreen: React.FC<MapsScreenProps> = ({userLocation}) => (
+export const MapsScreen: React.FC<MapsScreenProps> = ({
+  userLocation,
+  children,
+}) => (
   <MapView
     provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : undefined} // remove if not using Google Maps
     showsUserLocation
@@ -25,6 +28,7 @@ export const MapsScreen: React.FC<MapsScreenProps> = ({userLocation}) => (
       longitude: userLocation.longitude ? userLocation.longitude : 0,
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
-    }}
-  />
+    }}>
+    {children}
+  </MapView>
 );

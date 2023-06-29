@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mapbox/polyline": "^1.2.0",
     "axios": "^1.4.0",
     "expo": "^48.0.0",
     "expo-location": "~15.1.1",
@@ -24,6 +25,7 @@
     "@react-native-community/eslint-config": "^3.2.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.1",
+    "@types/mapbox__polyline": "^1.0.2",
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
