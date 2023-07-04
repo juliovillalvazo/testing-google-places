@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Constants.statusBarHeight,
     width: '70%',
-    maxHeight: '30%',
   },
   placeInput: {
     height: 40,
